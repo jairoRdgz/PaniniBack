@@ -19,7 +19,7 @@ import com.panini.demo.model.Lamina;
 import com.panini.demo.services.LaminaService;
 
 @RestController
-@RequestMapping ("/api/users/album/lamina/")
+@RequestMapping ("/api/users/albums/lamina/")
 public class LaminaREST {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class LaminaREST {
 		Lamina temporal = laminaService.create(persona);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/users/album/lamina"+temporal.getLaminaid())).body(temporal);
+			return ResponseEntity.created(new URI("/api/users/albums/lamina"+temporal.getLaminaid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

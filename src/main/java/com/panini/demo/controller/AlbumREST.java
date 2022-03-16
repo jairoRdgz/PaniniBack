@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.panini.demo.model.Album;
 import com.panini.demo.services.AlbumService;
+import com.panini.demo.services.LaminaService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -27,19 +28,22 @@ public class AlbumREST {
 	@Autowired
 	private AlbumService albumService;
 	
-	@PostMapping//aqui debe ir el id del user
-	private ResponseEntity<Album> guardar (@RequestBody Album album){
-		// aqui debo llamar al user para asignarlo a un album
+	private LaminaService laminaService;
+	
+	@PostMapping
+	private ResponseEntity<Album> guardar (@RequestBody Album album ){
+		
 		Album temporal = albumService.create(album);
 		
 		try {	
 			return ResponseEntity.created(new URI("/api/users/albums"+temporal.getAlbumid())).body(temporal);
 			
 		}catch (Exception e) {
-			System.out.println("mili es gay");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
+	
+
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping

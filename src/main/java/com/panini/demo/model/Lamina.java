@@ -4,8 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name = "laminas")
@@ -19,7 +24,10 @@ public class Lamina {
 	private int cuantity;
 	private boolean filter;
 	
+	
 	@ManyToOne
+	@JoinColumn(name = "albumid")
+	@JsonIgnoreProperties("laminas")
 	private Album album;
 	
 	public Lamina() {

@@ -10,8 +10,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table (name = "albums")
+@JsonIgnoreProperties({"hibernateLazyInitializer","referenceList"})
 public class Album {
 
 	@Id
@@ -24,7 +30,9 @@ public class Album {
 	@ManyToOne
 	private User user;
 
-	@OneToMany
+
+	@OneToMany(mappedBy = "album")
+	@JsonIgnoreProperties("album")
 	private List<Lamina> laminas;
 	
 	public int getLaminasnumber() {
