@@ -1,10 +1,14 @@
 package com.panini.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table (name = "users")
@@ -21,22 +25,22 @@ public class User {
 	private String addressofliving;
 	private String addressofselling;
 	
-	//@OneToMany(mappedBy = "users")
-	//private List<Album> albums;
+	@OneToMany
+	private List<Album> albums;
 	
 	
 	public User () {
-		
+		this.tokens = 0;
 	}
 	
 	
 	
-	public User(Long id, String nombre, String apellido, String correo, int tokens) {
+	public User(Long id, String nombre, String apellido, String correo) {
 		this.userid = id;
 		this.username = nombre;
 		this.password = apellido;
 		this.email = correo;
-		this.tokens = tokens;
+		this.tokens = 0;
 		
 	}
 	
@@ -96,19 +100,19 @@ public class User {
 		this.tokens = tokens;
 	}
 
-//	public List<Album> getAlbums() {
-//		return albums;
-//	}
-//
-//	public void setAlbums(List<Album> albums) {
-//		this.albums = albums;
-//	}
-//
-//	public Album addAlbum(Album newalbum) {
-//		getAlbums().add(newalbum);
-//		newalbum.setUser(this);
-//		
-//		return newalbum;
-//	}
+	public List<Album> getAlbums() {
+		return albums;
+	}
+
+	public void setAlbums(List<Album> albums) {
+		this.albums = albums;
+	}
+
+	public Album addAlbum(Album newalbum) {
+		getAlbums().add(newalbum);
+		newalbum.setUser(this);
+		
+		return newalbum;
+	}
 	
 }

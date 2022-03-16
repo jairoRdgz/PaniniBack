@@ -1,9 +1,13 @@
 package com.panini.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,9 +21,11 @@ public class Album {
 	private String albumName;
 	private int laminasNumber;
 	
-	//private User user;
+	@ManyToOne
+	private User user;
 
-	//private List<Lamina> laminas;
+	@OneToMany
+	private List<Lamina> laminas;
 	
 	public int getLaminasnumber() {
 		return laminasNumber;
@@ -54,26 +60,26 @@ public class Album {
 		this.albumName = name;
 	}
 	
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	public User getUser() {
+		return user;
+	}
 
-//	public List<Lamina> getLaminas() {
-//		return laminas;
-//	}
-//
-//	public void setLaminas(List<Lamina> laminas) {
-//		this.laminas = laminas;
-//	}
-//	
-//	public Lamina addLamina(Lamina lamina) {
-//		getLaminas().add(lamina);
-//		lamina.setAlbum(this);
-//		return lamina;
-//	}
-//	
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Lamina> getLaminas() {
+		return laminas;
+	}
+
+	public void setLaminas(List<Lamina> laminas) {
+		this.laminas = laminas;
+	}
+	
+	public Lamina addLamina(Lamina lamina) {
+		getLaminas().add(lamina);
+		lamina.setAlbum(this);
+		return lamina;
+	}
+	
 }

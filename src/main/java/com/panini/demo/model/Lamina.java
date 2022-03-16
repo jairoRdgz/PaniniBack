@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +18,9 @@ public class Lamina {
 	private String img;
 	private int cuantity;
 	private boolean filter;
-	//private Album album;
+	
+	@ManyToOne
+	private Album album;
 	
 	public Lamina() {
 		
@@ -62,12 +65,12 @@ public class Lamina {
 		this.filter = filter;
 	}
 
-//	public Album getAlbum() {
-//		return album;
-//	}
-//
-//	public void setAlbum(Album album) {
-//		this.album = album;
-//	}
+	public Album getAlbum() {
+		return album;
+	}
+
+	public void setAlbum(Album album) {
+		this.album = album;
+	}
 	
 }
