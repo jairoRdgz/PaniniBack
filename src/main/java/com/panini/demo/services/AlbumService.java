@@ -30,4 +30,12 @@ public class AlbumService {
 	public Optional<Album> findById (Long id) {
 		return albumRepository.findById(id);
 	}
+	
+	public void update (Album album) {
+		Album newAlbum = albumRepository.getById(album.getAlbumid());
+		newAlbum.setAlbumName(album.getAlbumName());
+		
+		albumRepository.save(newAlbum);
+		
+	}
 }

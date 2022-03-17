@@ -18,28 +18,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.panini.demo.model.Album;
-import com.panini.demo.services.AlbumService;
+import com.panini.demo.model.Solicitud;
 import com.panini.demo.services.BasicInfo;
-import com.panini.demo.services.LaminaService;
+import com.panini.demo.services.SolicitudService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping ("/api/users/albums/")
-public class AlbumREST {
-
-	@Autowired
-	private AlbumService albumService;
+@RequestMapping ("/api/users/solicitud/")
+public class SolicitudREST {
 	
-	private LaminaService laminaService;
+	@Autowired
+	private SolicitudService solicitudService;
 	
 	@PostMapping
-	private ResponseEntity<Album> guardar (@RequestBody Album album ){
+	private ResponseEntity<Solicitud> guardar (@RequestBody Solicitud solicitud ){
 		
-		Album temporal = albumService.create(album);
+		Solicitud temporal = solicitudService.create(solicitud);
 		
 		try {	
-			return ResponseEntity.created(new URI("/api/users/albums"+temporal.getAlbumid())).body(temporal);
+			return ResponseEntity.created(new URI("/api/users/solicitud"+temporal.getSolicitudid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -50,26 +47,26 @@ public class AlbumREST {
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping
-	private ResponseEntity<List<Album>> listarTodosLosAlbumes (){
-		return ResponseEntity.ok(albumService.getAllAlbums());
+	private ResponseEntity<List<Solicitud>> listarTodosLasSolicitudes (){
+		return ResponseEntity.ok(solicitudService.getAllSolicitudes());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarAlbum (@RequestBody Album persona){
-		albumService.delete(persona);
+	private ResponseEntity<Void> eliminarSolicitud (@RequestBody Solicitud solicitud){
+		solicitudService.delete(solicitud);
 		return ResponseEntity.ok().build();
 	}
 	
 	
 	@PutMapping()
-	private ResponseEntity<Album> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Album album){
-		Optional<Album> nuevo = albumService.findById(album.getAlbumid());
-		albumService.update(album);
-		return ResponseEntity.ok(album);
+	private ResponseEntity<Solicitud> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Solicitud solicitud){
+		Optional<Solicitud> nuevo = solicitudService.findById(solicitud.getSolicitudid());
+		solicitudService.update(solicitud);
+		return ResponseEntity.ok(solicitud);
 	}
 	
 	@GetMapping (value = "{id}")
-	private ResponseEntity<Optional<Album>> listarAlbumsPorID (@PathVariable ("id") Long id){
-		return ResponseEntity.ok(albumService.findById(id));
+	private ResponseEntity<Optional<Solicitud>> listarAlbumsPorID (@PathVariable ("id") Long id){
+		return ResponseEntity.ok(solicitudService.findById(id));
 	}
 }

@@ -26,14 +26,16 @@ public class PruebaApiRestApplication {
 			albumRepository.save(a);
 			
 			Lamina l1 = new Lamina();
-			l1.setImg("imagen 1");
+			l1.setImg("https://www.laststicker.com/i/cards/3852/sp01.jpg");
 			l1.setCuantity(2);
 			l1.setAlbum(a);
+			l1.setFilter(true);
 			
 			Lamina l2 = new Lamina();
-			l2.setImg("imagen 2");
+			l2.setImg("https://www.laststicker.com/i/cards/3852/mr2.jpg");
 			l2.setCuantity(2);
 			l2.setAlbum(a);
+			l2.setFilter(false);
 			
 			
 			laminaRespository.save(l1);
