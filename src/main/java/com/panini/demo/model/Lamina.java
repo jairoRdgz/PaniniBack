@@ -24,7 +24,7 @@ public class Lamina {
 	private int cuantity;
 	private boolean filter;
 	
-	private Solicitud solicitud;
+	//private Solicitud solicitud;
 	
 	@ManyToOne
 	@JoinColumn(name = "albumid")
