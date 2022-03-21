@@ -8,8 +8,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -23,6 +21,7 @@ public class Lamina {
 	private String img;
 	private int cuantity;
 	private boolean filter;
+	private String title;
 	
 	//private Solicitud solicitud;
 	
@@ -35,11 +34,12 @@ public class Lamina {
 		
 	}
 
-	public Lamina(Long laminaid, String img, int cuantity, boolean filter) {
+	public Lamina(Long laminaid,String title, String img, int cuantity, boolean filter) {
 		this.laminaid = laminaid;
 		this.img = img;
 		this.cuantity = cuantity;
 		this.filter = filter;
+		this.title = title;
 	}
 
 	public Long getLaminaid() {
@@ -80,6 +80,14 @@ public class Lamina {
 
 	public void setAlbum(Album album) {
 		this.album = album;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	
 }

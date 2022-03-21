@@ -31,7 +31,6 @@ public class AlbumREST {
 	@Autowired
 	private AlbumService albumService;
 	
-	private LaminaService laminaService;
 	
 	@PostMapping
 	private ResponseEntity<Album> guardar (@RequestBody Album album ){
@@ -72,4 +71,6 @@ public class AlbumREST {
 	private ResponseEntity<Optional<Album>> listarAlbumsPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(albumService.findById(id));
 	}
+	
+	
 }
