@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,7 @@ public class LaminaREST {
 	@Autowired
 	private LaminaService laminaService;
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<Lamina> guardar (@RequestBody Lamina persona){
 		Lamina temporal = laminaService.create(persona);
@@ -40,24 +42,26 @@ public class LaminaREST {
 		}
 	}
 	
-	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping
 	private ResponseEntity<List<Lamina>> listarTodasLasPersona (){
 		return ResponseEntity.ok(laminaService.getAllLaminas());
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@DeleteMapping
 	private ResponseEntity<Void> eliminarPersona (@RequestBody Lamina persona){
 		laminaService.delete(persona);
 		return ResponseEntity.ok().build();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping (value = "{id}")
 	private ResponseEntity<Optional<Lamina>> listarPersonasPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(laminaService.findById(id));
 	}
 	
-	//@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PutMapping(value = "{id}")
 	private ResponseEntity<Lamina> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Lamina lamina){
 		

@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.panini.demo.model.Album;
 import com.panini.demo.services.AlbumService;
 import com.panini.demo.services.BasicInfo;
-import com.panini.demo.services.LaminaService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -31,7 +30,7 @@ public class AlbumREST {
 	@Autowired
 	private AlbumService albumService;
 	
-	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<Album> guardar (@RequestBody Album album ){
 		

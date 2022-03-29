@@ -30,6 +30,7 @@ public class NotificacionRest {
 	@Autowired
 	private NotificacionService notificacionService;
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping
 	private ResponseEntity<Notificacion> guardar (@RequestBody Notificacion notificacion ){
 		
@@ -43,14 +44,13 @@ public class NotificacionRest {
 		}
 	}
 	
-
-	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping
 	private ResponseEntity<List<Notificacion>> listarTodosLosAlbumes (){
 		return ResponseEntity.ok(notificacionService.getAllNotificaciones());
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@DeleteMapping
 	private ResponseEntity<Void> eliminarNotificacion (@RequestBody Notificacion notificacion){
 		notificacionService.delete(notificacion);
@@ -65,6 +65,7 @@ public class NotificacionRest {
 		return ResponseEntity.ok(notificacion);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping (value = "{id}")
 	private ResponseEntity<Optional<Notificacion>> listarAlbumsPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(notificacionService.findById(id));
