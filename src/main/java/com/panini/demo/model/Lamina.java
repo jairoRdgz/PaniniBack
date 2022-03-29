@@ -22,6 +22,7 @@ public class Lamina {
 	private int cuantity;
 	private boolean filter;
 	private String title;
+	private int page;
 	
 	//private Solicitud solicitud;
 	
@@ -88,6 +89,14 @@ public class Lamina {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
 	}
 	
 }
