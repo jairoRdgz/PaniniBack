@@ -98,5 +98,9 @@ public class Lamina {
 	public void setPage(int page) {
 		this.page = page;
 	}
+
+	public boolean getFilter() {
+		return filter;
+	}
 	
 }

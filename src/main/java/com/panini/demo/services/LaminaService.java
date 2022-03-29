@@ -22,8 +22,6 @@ public class LaminaService {
 		this.laminaRespository = laminaRespository;
 		this.albumRepository = albumRepository;
 	}
-	
-	
 
 	public Lamina create(Lamina lamina) {
 		
@@ -42,5 +40,13 @@ public class LaminaService {
 	
 	public Optional<Lamina> findById(Long id){
 		return laminaRespository.findById(id);
+	}
+	
+	public void update (Lamina lamina) {
+		Lamina newLamina = laminaRespository.getById(lamina.getLaminaid());
+		newLamina.setCuantity(lamina.getCuantity());
+		newLamina.setFilter(lamina.getFilter());
+		
+		laminaRespository.save(newLamina);
 	}
 }
