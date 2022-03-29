@@ -59,8 +59,8 @@ public class AlbumREST {
 		return ResponseEntity.ok().build();
 	}
 	
-	
-	@PutMapping()
+	@CrossOrigin(origins = "http://localhost:3000")
+	@PutMapping
 	private ResponseEntity<Album> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Album album){
 		Optional<Album> nuevo = albumService.findById(album.getAlbumid());
 		albumService.update(album);
