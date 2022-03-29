@@ -19,7 +19,7 @@ public class Notificacion {
 	private String info;
 	private boolean solicitud;
 	private int cuantity;
-	private int number;
+	private String lamina;
 	private int tokens;
 	
 	@ManyToOne
@@ -29,13 +29,13 @@ public class Notificacion {
 		
 	}
 
-	public Notificacion(Long notifyid, String title, String info, boolean solicitud, int cuantity, int number,int tokens) {
+	public Notificacion(Long notifyid, String title, String info, boolean solicitud, int cuantity, String lamina,int tokens) {
 		this.notifyid = notifyid;
 		this.title = title;
 		this.info = info;
 		this.solicitud = solicitud;
 		this.cuantity = cuantity;
-		this.number = number;
+		this.lamina = lamina;
 		this.tokens = tokens;
 	}
 
@@ -79,12 +79,12 @@ public class Notificacion {
 		this.cuantity = cuantity;
 	}
 
-	public int getNumber() {
-		return number;
+	public String getLamina() {
+		return lamina;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setLamina(String lamina) {
+		this.lamina = lamina;
 	}
 
 	public int getTokens() {

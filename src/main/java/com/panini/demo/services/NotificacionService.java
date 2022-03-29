@@ -35,7 +35,7 @@ public class NotificacionService {
 		Notificacion newNotificacion = notificacionRepository.getById(notificacion.getNotifyid());
 		newNotificacion.setCuantity(notificacion.getCuantity());
 		newNotificacion.setInfo(notificacion.getInfo());
-		newNotificacion.setNumber(notificacion.getNumber());
+		newNotificacion.setLamina(notificacion.getLamina());
 		newNotificacion.setSolicitud(notificacion.isSolicitud());
 		newNotificacion.setTitle(notificacion.getTitle());
 		newNotificacion.setTokens(notificacion.getTokens());
