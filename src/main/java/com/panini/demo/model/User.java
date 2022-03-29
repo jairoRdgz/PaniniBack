@@ -28,6 +28,9 @@ public class User {
 	@OneToMany
 	private List<Album> albums;
 	
+	@OneToMany
+	private List<Notificacion> notificaciones;
+	
 	
 	public User () {
 		this.tokens = 0;
@@ -113,6 +116,30 @@ public class User {
 		newalbum.setUser(this);
 		
 		return newalbum;
+	}
+
+
+
+	public Long getUserid() {
+		return userid;
+	}
+
+
+
+	public void setUserid(Long userid) {
+		this.userid = userid;
+	}
+
+
+
+	public List<Notificacion> getNotificaciones() {
+		return notificaciones;
+	}
+
+
+
+	public void setNotificaciones(List<Notificacion> notificaciones) {
+		this.notificaciones = notificaciones;
 	}
 	
 }

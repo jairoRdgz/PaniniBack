@@ -18,25 +18,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.panini.demo.model.Solicitud;
+import com.panini.demo.model.Notificacion;
 import com.panini.demo.services.BasicInfo;
-import com.panini.demo.services.SolicitudService;
+import com.panini.demo.services.NotificacionService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-@RequestMapping ("/api/users/solicitud/")
-public class SolicitudREST {
-	
+@RequestMapping ("/api/users/notifys/")
+public class NotificacionRest {
+
 	@Autowired
-	private SolicitudService solicitudService;
+	private NotificacionService notificacionService;
 	
 	@PostMapping
-	private ResponseEntity<Solicitud> guardar (@RequestBody Solicitud solicitud ){
+	private ResponseEntity<Notificacion> guardar (@RequestBody Notificacion notificacion ){
 		
-		Solicitud temporal = solicitudService.create(solicitud);
+		Notificacion temporal = notificacionService.create(notificacion);
 		
 		try {	
-			return ResponseEntity.created(new URI("/api/users/solicitud"+temporal.getSolicitudid())).body(temporal);
+			return ResponseEntity.created(new URI("/api/users/notifys"+temporal.getNotifyid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
@@ -47,26 +47,26 @@ public class SolicitudREST {
 	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping
-	private ResponseEntity<List<Solicitud>> listarTodosLasSolicitudes (){
-		return ResponseEntity.ok(solicitudService.getAllSolicitudes());
+	private ResponseEntity<List<Notificacion>> listarTodosLosAlbumes (){
+		return ResponseEntity.ok(notificacionService.getAllNotificaciones());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarSolicitud (@RequestBody Solicitud solicitud){
-		solicitudService.delete(solicitud);
+	private ResponseEntity<Void> eliminarNotificacion (@RequestBody Notificacion notificacion){
+		notificacionService.delete(notificacion);
 		return ResponseEntity.ok().build();
 	}
 	
-	
-	@PutMapping()
-	private ResponseEntity<Solicitud> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Solicitud solicitud){
-		Optional<Solicitud> nuevo = solicitudService.findById(solicitud.getSolicitudid());
-		solicitudService.update(solicitud);
-		return ResponseEntity.ok(solicitud);
+	@CrossOrigin(origins = "http://localhost:3000")
+	@PutMapping(value = "{id}")
+	private ResponseEntity<Notificacion> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Notificacion notificacion){
+		
+		notificacionService.update(notificacion);
+		return ResponseEntity.ok(notificacion);
 	}
 	
 	@GetMapping (value = "{id}")
-	private ResponseEntity<Optional<Solicitud>> listarAlbumsPorID (@PathVariable ("id") Long id){
-		return ResponseEntity.ok(solicitudService.findById(id));
+	private ResponseEntity<Optional<Notificacion>> listarAlbumsPorID (@PathVariable ("id") Long id){
+		return ResponseEntity.ok(notificacionService.findById(id));
 	}
 }

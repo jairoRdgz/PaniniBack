@@ -57,7 +57,7 @@ public class LaminaREST {
 		return ResponseEntity.ok(laminaService.findById(id));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	//@CrossOrigin(origins = "http://localhost:3000")
 	@PutMapping(value = "{id}")
 	private ResponseEntity<Lamina> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Lamina lamina){
 		
