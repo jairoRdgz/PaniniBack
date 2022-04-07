@@ -29,7 +29,7 @@ public class LaminaREST {
 	@Autowired
 	private LaminaService laminaService;
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@PostMapping
 	private ResponseEntity<Lamina> guardar (@RequestBody Lamina persona){
 		Lamina temporal = laminaService.create(persona);
@@ -42,26 +42,26 @@ public class LaminaREST {
 		}
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@GetMapping
 	private ResponseEntity<List<Lamina>> listarTodasLasPersona (){
 		return ResponseEntity.ok(laminaService.getAllLaminas());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@DeleteMapping
 	private ResponseEntity<Void> eliminarPersona (@RequestBody Lamina persona){
 		laminaService.delete(persona);
 		return ResponseEntity.ok().build();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@GetMapping (value = "{id}")
 	private ResponseEntity<Optional<Lamina>> listarPersonasPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(laminaService.findById(id));
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@PutMapping(value = "{id}")
 	private ResponseEntity<Lamina> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Lamina lamina){
 		

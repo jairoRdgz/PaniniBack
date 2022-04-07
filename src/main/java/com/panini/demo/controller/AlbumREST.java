@@ -23,14 +23,14 @@ import com.panini.demo.services.AlbumService;
 import com.panini.demo.services.BasicInfo;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequestMapping ("/api/users/albums/")
 public class AlbumREST {
 
 	@Autowired
 	private AlbumService albumService;
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@PostMapping
 	private ResponseEntity<Album> guardar (@RequestBody Album album ){
 		
@@ -46,7 +46,7 @@ public class AlbumREST {
 	
 
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@GetMapping
 	private ResponseEntity<List<Album>> listarTodosLosAlbumes (){
 		return ResponseEntity.ok(albumService.getAllAlbums());
@@ -58,7 +58,7 @@ public class AlbumREST {
 		return ResponseEntity.ok().build();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@PutMapping(value = "{id}")
 	private ResponseEntity<Album> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Album album){
 		

@@ -23,14 +23,14 @@ import com.panini.demo.services.BasicInfo;
 import com.panini.demo.services.NotificacionService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequestMapping ("/api/users/notifys/")
 public class NotificacionRest {
 
 	@Autowired
 	private NotificacionService notificacionService;
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@PostMapping
 	private ResponseEntity<Notificacion> guardar (@RequestBody Notificacion notificacion ){
 		
@@ -44,20 +44,20 @@ public class NotificacionRest {
 		}
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@GetMapping
 	private ResponseEntity<List<Notificacion>> listarTodosLosAlbumes (){
 		return ResponseEntity.ok(notificacionService.getAllNotificaciones());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@DeleteMapping
 	private ResponseEntity<Void> eliminarNotificacion (@RequestBody Notificacion notificacion){
 		notificacionService.delete(notificacion);
 		return ResponseEntity.ok().build();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@PutMapping(value = "{id}")
 	private ResponseEntity<Notificacion> actualizarAlbum(@PathVariable(value="id") Long id, @Validated(BasicInfo.class) @RequestBody Notificacion notificacion){
 		
@@ -65,7 +65,7 @@ public class NotificacionRest {
 		return ResponseEntity.ok(notificacion);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "*")
 	@GetMapping (value = "{id}")
 	private ResponseEntity<Optional<Notificacion>> listarAlbumsPorID (@PathVariable ("id") Long id){
 		return ResponseEntity.ok(notificacionService.findById(id));
