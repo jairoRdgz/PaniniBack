@@ -37,7 +37,7 @@ public class PrecioREST {
 		Precio temporal = precioService.create(album);
 		
 		try {	
-			return ResponseEntity.created(new URI("/api/precios"+temporal.getPracioid())).body(temporal);
+			return ResponseEntity.created(new URI("/api/precios"+temporal.getPrecioid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
