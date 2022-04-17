@@ -1,5 +1,6 @@
 package com.panini.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ import com.panini.demo.repository.PrecioRepository;
 @SpringBootApplication
 public class PruebaApiRestApplication {
 	
+	@Autowired
 	PrecioRepository precioRepository;
 	
 	public static void main(String[] args) {
