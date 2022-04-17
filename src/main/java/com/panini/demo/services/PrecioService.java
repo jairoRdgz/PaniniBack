@@ -36,7 +36,7 @@ public class PrecioService {
 		Precio newPrecio = precioRepository.getById(precio.getPracioid());
 		newPrecio.setCategory(precio.getCategory());
 		newPrecio.setLamina(precio.getLamina());
-		newPrecio.setName(precio.getName());
-		newPrecio.setPrecio(precio.getPrecio());
+		newPrecio.setNumber(precio.getNumber());
+		newPrecio.setPrice(precio.getPrice());
 	}
 }

@@ -18,10 +18,10 @@ public class Precio {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long pracioid;
 	
-	private String name;
+	private String number;
 	private String lamina;
 	private String category;
-	private double precio;
+	private double price;
 	
 	public Precio() {
 		
@@ -29,10 +29,10 @@ public class Precio {
 	
 	public Precio(Long pracioid, String name, String lamina, String category, double precio) {
 		this.pracioid = pracioid;
-		this.name = name;
+		this.number = name;
 		this.lamina = lamina;
 		this.category = category;
-		this.precio = precio;
+		this.price = precio;
 	}
 
 	public Long getPracioid() {
@@ -43,12 +43,12 @@ public class Precio {
 		this.pracioid = pracioid;
 	}
 
-	public String getName() {
-		return name;
+	public String getNumber() {
+		return number;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNumber(String name) {
+		this.number = name;
 	}
 
 	public String getLamina() {
@@ -67,12 +67,12 @@ public class Precio {
 		this.category = category;
 	}
 
-	public double getPrecio() {
-		return precio;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setPrice(double precio) {
+		this.price = precio;
 	}
 	
 	
