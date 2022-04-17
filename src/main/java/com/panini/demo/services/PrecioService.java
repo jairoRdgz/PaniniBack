@@ -33,7 +33,7 @@ public class PrecioService {
 	}
 	
 	public void update (Precio precio) {
-		Precio newPrecio = precioRepository.getById(precio.getPracioid());
+		Precio newPrecio = precioRepository.getById(precio.getPrecioid());
 		newPrecio.setCategory(precio.getCategory());
 		newPrecio.setLamina(precio.getLamina());
 		newPrecio.setNumber(precio.getNumber());
