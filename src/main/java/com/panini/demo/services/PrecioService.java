@@ -38,5 +38,6 @@ public class PrecioService {
 		newPrecio.setLamina(precio.getLamina());
 		newPrecio.setNumber(precio.getNumber());
 		newPrecio.setPrice(precio.getPrice());
+		newPrecio.setSection(precio.getSection());
 	}
 }

@@ -22,6 +22,7 @@ public class Precio {
 	private String lamina;
 	private String category;
 	private double price;
+	private String section;
 	
 	public Precio() {
 		
@@ -73,6 +74,14 @@ public class Precio {
 
 	public void setPrice(double precio) {
 		this.price = precio;
+	}
+
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
 	}
 	
 	
