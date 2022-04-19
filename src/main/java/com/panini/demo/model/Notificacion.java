@@ -17,7 +17,7 @@ public class Notificacion {
 	
 	private String title;
 	private String info;
-	private boolean solicitud;
+	private String solicitud;
 	private int cuantity;
 	private String lamina;
 	private int tokens;
@@ -29,7 +29,7 @@ public class Notificacion {
 		
 	}
 
-	public Notificacion(Long notifyid, String title, String info, boolean solicitud, int cuantity, String lamina,int tokens) {
+	public Notificacion(Long notifyid, String title, String info, String solicitud, int cuantity, String lamina,int tokens) {
 		this.notifyid = notifyid;
 		this.title = title;
 		this.info = info;
@@ -63,11 +63,11 @@ public class Notificacion {
 		this.info = info;
 	}
 
-	public boolean isSolicitud() {
+	public String isSolicitud() {
 		return solicitud;
 	}
 
-	public void setSolicitud(boolean solicitud) {
+	public void setSolicitud(String solicitud) {
 		this.solicitud = solicitud;
 	}
 
