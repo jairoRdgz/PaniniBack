@@ -17,7 +17,7 @@ public class Notificacion {
 	
 	private String title;
 	private String info;
-	private String solicitud;
+	private String type;
 	private int cuantity;
 	private String lamina;
 	private int tokens;
@@ -33,7 +33,7 @@ public class Notificacion {
 		this.notifyid = notifyid;
 		this.title = title;
 		this.info = info;
-		this.solicitud = solicitud;
+		this.type = solicitud;
 		this.cuantity = cuantity;
 		this.lamina = lamina;
 		this.tokens = tokens;
@@ -63,12 +63,12 @@ public class Notificacion {
 		this.info = info;
 	}
 
-	public String isSolicitud() {
-		return solicitud;
+	public String getType() {
+		return type;
 	}
 
-	public void setSolicitud(String solicitud) {
-		this.solicitud = solicitud;
+	public void setType(String solicitud) {
+		this.type = solicitud;
 	}
 
 	public int getCuantity() {
