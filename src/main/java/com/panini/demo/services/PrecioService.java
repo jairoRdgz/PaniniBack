@@ -33,11 +33,11 @@ public class PrecioService {
 	}
 	
 	public void update (Precio precio) {
-		Precio newPrecio = precioRepository.getById(precio.getPrecioid());
-		newPrecio.setCategory(precio.getCategory());
-		newPrecio.setLamina(precio.getLamina());
-		newPrecio.setNumber(precio.getNumber());
-		newPrecio.setPrice(precio.getPrice());
-		newPrecio.setSection(precio.getSection());
+		//Precio newPrecio = precioRepository.getById(precio.getPrecioid());
+		//newPrecio.setCategory(precio.getCategory());
+		//newPrecio.setLamina(precio.getLamina());
+		//newPrecio.setNumber(precio.getNumber());
+		//newPrecio.setPrice(precio.getPrice());
+		//newPrecio.setSection(precio.getSection());
 	}
 }
