@@ -8480,7 +8480,7 @@ public class PruebaApiRestApplication {
 	
 	public void loadLaminas(LaminaRespository laminaRespository, AlbumRepository albumRepository) {
 		Album al = new Album();
-		al.setAlbumName("Vojabes");
+		al.setAlbumName("Mi primer Album");
 		albumRepository.save(al);
 		
 		Lamina l0 = new Lamina();
