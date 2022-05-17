@@ -24,7 +24,7 @@ import com.panini.demo.services.NotificacionService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping ("/api/users/notifys/")
+@RequestMapping ("/api/users/{userid}/notifys/")
 public class NotificacionRest {
 
 	@Autowired

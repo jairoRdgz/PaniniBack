@@ -23,7 +23,7 @@ import com.panini.demo.services.BasicInfo;
 import com.panini.demo.services.LaminaService;
 
 @RestController
-@RequestMapping ("/api/users/albums/lamina/")
+@RequestMapping ("/api/users/{userid}/albums/lamina/")
 public class LaminaREST {
 	
 	@Autowired

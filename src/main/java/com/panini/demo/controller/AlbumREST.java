@@ -24,7 +24,7 @@ import com.panini.demo.services.BasicInfo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping ("/api/users/albums/")
+@RequestMapping ("/api/users/{userid}/albums/")
 public class AlbumREST {
 
 	@Autowired
