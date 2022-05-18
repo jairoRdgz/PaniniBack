@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panini.demo.model.Album;
@@ -32,12 +33,12 @@ public class AlbumREST {
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping
-	private ResponseEntity<Album> guardar (@RequestBody Album album ){
+	private ResponseEntity<Album> guardar (@RequestBody Album album, @RequestParam String userid ){
 		
 		Album temporal = albumService.create(album);
 		
 		try {	
-			return ResponseEntity.created(new URI("/api/users/albums"+temporal.getAlbumid())).body(temporal);
+			return ResponseEntity.created(new URI("/api/users/"+userid+"/albums"+temporal.getAlbumid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
