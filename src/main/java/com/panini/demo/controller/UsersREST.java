@@ -51,9 +51,9 @@ public class UsersREST {
 		return ResponseEntity.ok().build();
 	}
 	
-	@GetMapping (value = "{id}")
-	private ResponseEntity<Optional<User>> listarPersonasPorID (@PathVariable ("id") Long id){
-		return ResponseEntity.ok(personaService.findById(id));
+	@GetMapping (value = "{firebaseid}")
+	private ResponseEntity<Optional<User>> listarPersonasPorID (@PathVariable ("firebaseid") String firebaseid){
+		return ResponseEntity.ok(personaService.findById(firebaseid));
 	}
 	
 

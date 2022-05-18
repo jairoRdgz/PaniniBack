@@ -27,7 +27,7 @@ public class UsersService {
 		personaResporitory.delete(persona);
 	}
 	
-	public Optional<User> findById (Long id) {
+	public Optional<User> findById (String id) {
 		return personaResporitory.findById(id);
 	}
 }

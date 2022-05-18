@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class User {
 	
 	
-	private Long userid;
+	private String userid;
 	private String firebaseid;
 	private String username;
 	private String password;
@@ -34,7 +34,8 @@ public class User {
 	
 	
 	
-	public User(Long id, String nombre, String apellido, String correo) {
+	public User(String id, String nombre, String apellido, String correo) {
+		this.firebaseid = id;
 		this.userid = id;
 		this.username = nombre;
 		this.password = apellido;
@@ -43,11 +44,11 @@ public class User {
 		
 	}
 	
-	public Long getId() {
+	public String getId() {
 		return userid;
 	}
 	
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.userid = id;
 	}
 	
@@ -114,37 +115,17 @@ public class User {
 		return newalbum;
 	}
 
-
-
-	public Long getUserid() {
-		return userid;
-	}
-
-
-
-	public void setUserid(Long userid) {
-		this.userid = userid;
-	}
-
-
-
 	public List<Notificacion> getNotificaciones() {
 		return notificaciones;
 	}
-
-
 
 	public void setNotificaciones(List<Notificacion> notificaciones) {
 		this.notificaciones = notificaciones;
 	}
 
-
-
 	public String getFirebaseid() {
 		return firebaseid;
 	}
-
-
 
 	public void setFirebaseid(String firebaseid) {
 		this.firebaseid = firebaseid;
