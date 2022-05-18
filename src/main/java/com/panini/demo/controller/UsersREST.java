@@ -32,7 +32,7 @@ public class UsersREST {
 		User temporal = personaService.create(persona);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/users"+temporal.getId())).body(temporal);
+			return ResponseEntity.created(new URI("/api/users"+temporal.getFirebaseid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();

@@ -15,8 +15,7 @@ import javax.persistence.Table;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long userid;
+	private String userid;
 	
 	private String firebaseid;
 	
@@ -37,24 +36,15 @@ public class User {
 	public User () {
 		this.tokens = 0;
 	}
+
 	
-	
-	
-	public User(Long id, String nombre, String apellido, String correo) {
+	public User(String id, String nombre, String apellido, String correo) {
 		this.userid = id;
 		this.username = nombre;
 		this.password = apellido;
 		this.email = correo;
 		this.tokens = 0;
 		
-	}
-	
-	public Long getId() {
-		return userid;
-	}
-	
-	public void setId(Long id) {
-		this.userid = id;
 	}
 	
 	public String getFirebaseid() {
@@ -134,13 +124,13 @@ public class User {
 
 
 
-	public Long getUserid() {
+	public String getUserid() {
 		return userid;
 	}
 
 
 
-	public void setUserid(Long userid) {
+	public void setUserid(String userid) {
 		this.userid = userid;
 	}
 
