@@ -35,8 +35,7 @@ public class User {
 	
 	
 	public User(String id, String nombre, String apellido, String correo) {
-		this.firebaseid = id;
-		this.userid = id;
+		this.userid = firebaseid;
 		this.username = nombre;
 		this.password = apellido;
 		this.email = correo;
