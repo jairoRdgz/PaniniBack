@@ -18,8 +18,8 @@ public class User {
 	private String password;
 	private String email;
 	private int tokens;
-	private String addressofliving;
-	private String addressofselling;
+	private String address;
+
 	
 	@OneToMany
 	private List<Album> albums;
@@ -30,6 +30,7 @@ public class User {
 	
 	public User () {
 		this.tokens = 0;
+		this.userid = firebaseid;
 	}
 	
 	
@@ -76,19 +77,11 @@ public class User {
 	}
 
 	public String getAddressofliving() {
-		return addressofliving;
+		return address;
 	}
 
-	public void setAddressofliving(String addressofliving) {
-		this.addressofliving = addressofliving;
-	}
-
-	public String getAddressofselling() {
-		return addressofselling;
-	}
-
-	public void setAddressofselling(String addressofselling) {
-		this.addressofselling = addressofselling;
+	public void setAddressofliving(String address) {
+		this.address = address;
 	}
 
 	public int getTokens() {
