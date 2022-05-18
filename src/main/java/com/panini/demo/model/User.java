@@ -3,6 +3,9 @@ package com.panini.demo.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -11,15 +14,18 @@ import javax.persistence.Table;
 @Table (name = "users")
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long userid;
 	
-	private String userid;
 	private String firebaseid;
+	
 	private String username;
 	private String password;
 	private String email;
 	private int tokens;
-	private String address;
-
+	private String addressofliving;
+	private String addressofselling;
 	
 	@OneToMany
 	private List<Album> albums;
@@ -30,13 +36,12 @@ public class User {
 	
 	public User () {
 		this.tokens = 0;
-		this.userid = firebaseid;
 	}
 	
 	
 	
-	public User(String id, String nombre, String apellido, String correo) {
-		this.userid = firebaseid;
+	public User(Long id, String nombre, String apellido, String correo) {
+		this.userid = id;
 		this.username = nombre;
 		this.password = apellido;
 		this.email = correo;
@@ -44,14 +49,26 @@ public class User {
 		
 	}
 	
-	public String getId() {
+	public Long getId() {
 		return userid;
 	}
 	
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.userid = id;
 	}
 	
+	public String getFirebaseid() {
+		return firebaseid;
+	}
+
+
+
+	public void setFirebaseid(String firebaseid) {
+		this.firebaseid = firebaseid;
+	}
+
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -77,11 +94,19 @@ public class User {
 	}
 
 	public String getAddressofliving() {
-		return address;
+		return addressofliving;
 	}
 
-	public void setAddressofliving(String address) {
-		this.address = address;
+	public void setAddressofliving(String addressofliving) {
+		this.addressofliving = addressofliving;
+	}
+
+	public String getAddressofselling() {
+		return addressofselling;
+	}
+
+	public void setAddressofselling(String addressofselling) {
+		this.addressofselling = addressofselling;
 	}
 
 	public int getTokens() {
@@ -107,20 +132,28 @@ public class User {
 		return newalbum;
 	}
 
+
+
+	public Long getUserid() {
+		return userid;
+	}
+
+
+
+	public void setUserid(Long userid) {
+		this.userid = userid;
+	}
+
+
+
 	public List<Notificacion> getNotificaciones() {
 		return notificaciones;
 	}
 
+
+
 	public void setNotificaciones(List<Notificacion> notificaciones) {
 		this.notificaciones = notificaciones;
-	}
-
-	public String getFirebaseid() {
-		return firebaseid;
-	}
-
-	public void setFirebaseid(String firebaseid) {
-		this.firebaseid = firebaseid;
 	}
 	
 }
