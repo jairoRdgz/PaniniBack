@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table (name = "users")
@@ -24,9 +26,11 @@ public class User {
 	private String addressofliving;
 	private String addressofselling;
 	
+	@JsonIgnore
 	@OneToMany
 	private List<Album> albums;
 	
+	@JsonIgnore
 	@OneToMany
 	private List<Notificacion> notificaciones;
 	
