@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.panini.demo.model.Album;
 import com.panini.demo.services.AlbumService;
 import com.panini.demo.services.BasicInfo;
+import com.panini.demo.services.UsersService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -30,6 +31,9 @@ public class AlbumREST {
 
 	@Autowired
 	private AlbumService albumService;
+	
+	@Autowired
+	private UsersService usersService;
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping
@@ -49,13 +53,13 @@ public class AlbumREST {
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping
-	private ResponseEntity<List<Album>> listarTodosLosAlbumes (){
-		return ResponseEntity.ok(albumService.getAllAlbums());
+	private ResponseEntity<List<Album>> listarTodosLosAlbumes (@RequestParam String userid){
+		return ResponseEntity.ok(usersService.findById(userid).get().getAlbums());
 	}
 	
 	@DeleteMapping
-	private ResponseEntity<Void> eliminarAlbum (@RequestBody Album persona){
-		albumService.delete(persona);
+	private ResponseEntity<Void> eliminarAlbum (@RequestBody Album album){
+		albumService.delete(album);
 		return ResponseEntity.ok().build();
 	}
 	

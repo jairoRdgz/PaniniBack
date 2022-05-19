@@ -21,6 +21,7 @@ public class Notificacion {
 	private int cuantity;
 	private String lamina;
 	private int tokens;
+	private String notificationid;
 	
 	@ManyToOne
 	private User user;
@@ -101,6 +102,14 @@ public class Notificacion {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getNotificationid() {
+		return notificationid;
+	}
+
+	public void setNotificationid(String notificationid) {
+		this.notificationid = notificationid;
 	}
 	
 	

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panini.demo.model.Lamina;
@@ -31,11 +32,11 @@ public class LaminaREST {
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping
-	private ResponseEntity<Lamina> guardar (@RequestBody Lamina persona){
+	private ResponseEntity<Lamina> guardar (@RequestBody Lamina persona, @RequestParam String userid){
 		Lamina temporal = laminaService.create(persona);
 		
 		try {
-			return ResponseEntity.created(new URI("/api/users/albums/lamina"+temporal.getLaminaid())).body(temporal);
+			return ResponseEntity.created(new URI("/api/users/"+userid+"/albums/lamina"+temporal.getLaminaid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
