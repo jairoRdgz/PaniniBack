@@ -39,7 +39,7 @@ public class AlbumREST {
 	@PostMapping
 	private ResponseEntity<Album> guardar (@RequestBody Album album, @RequestParam String userid ){
 		
-		Album temporal = albumService.create(album);
+		Album temporal = albumService.create(album, userid);
 		
 		try {	
 			return ResponseEntity.created(new URI("/api/users/"+userid+"/albums"+temporal.getAlbumid())).body(temporal);

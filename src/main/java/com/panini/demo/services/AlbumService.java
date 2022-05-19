@@ -10,6 +10,7 @@ import com.panini.demo.model.Album;
 import com.panini.demo.model.Lamina;
 import com.panini.demo.repository.AlbumRepository;
 import com.panini.demo.repository.LaminaRespository;
+import com.panini.demo.repository.UsersResporitory;
 
 @Service
 public class AlbumService {
@@ -18,9 +19,14 @@ public class AlbumService {
 	private AlbumRepository albumRepository;
 	
 	@Autowired
+	private UsersResporitory usersResporitory; 
+	
+	@Autowired
 	private LaminaRespository laminaRespository;
 	
-	public Album create (Album album) {
+	public Album create (Album album, String userid) {
+		album.setUser(usersResporitory.findById(userid).get());
+		usersResporitory.findById(userid).get().addAlbum(album);
 		albumRepository.save(album);
 		addAllLaminas(albumRepository.getById(album.getAlbumid()));
 		
@@ -48,6 +54,8 @@ public class AlbumService {
 	}
 	
 	public void addAllLaminas(Album al) {
+		
+		
 		Lamina l0 = new Lamina();
 		l0.setImg("https://www.laststicker.com/i/cards/3852/sp01.jpg");
 		l0.setAlbum(al);
