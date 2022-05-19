@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -24,11 +25,10 @@ public class Lamina {
 	private String title;
 	private int page;
 	
-	//private Solicitud solicitud;
-	
 	@ManyToOne
 	@JoinColumn(name = "albumid")
-	@JsonIgnoreProperties("laminas")
+	//@JsonIgnoreProperties("laminas")
+	//@JsonIgnore
 	private Album album;
 	
 	public Lamina() {

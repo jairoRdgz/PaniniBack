@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table (name = "albums")
+@Table (name = "album")
 @JsonIgnoreProperties({"hibernateLazyInitializer","referenceList"})
 public class Album {
 
@@ -29,19 +29,13 @@ public class Album {
 	@ManyToOne
 	private User user;
 
-
-	@OneToMany(mappedBy = "album")
-	@JsonIgnoreProperties("album")
+	
+	@OneToMany(mappedBy="album")
+	//@JsonIgnoreProperties("album")
+	@JsonIgnore
 	private List<Lamina> laminas;
 	
-	public int getLaminasnumber() {
-		return laminasNumber;
-	}
-
-	public void setLaminasnumber(int laminasnumber) {
-		this.laminasNumber = laminasnumber;
-	}
-
+	
 	public Album() {
 		
 	}
@@ -89,4 +83,12 @@ public class Album {
 		return lamina;
 	}
 	
+	public int getLaminasnumber() {
+		return laminasNumber;
+	}
+
+	public void setLaminasnumber(int laminasnumber) {
+		this.laminasNumber = laminasnumber;
+	}
+
 }

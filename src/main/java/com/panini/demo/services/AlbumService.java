@@ -56,7 +56,6 @@ public class AlbumService {
 	
 	public void addAllLaminas(Album al) {
 		
-		
 		Lamina l0 = new Lamina();
 		l0.setImg("https://www.laststicker.com/i/cards/3852/sp01.jpg");
 		l0.setAlbum(al);
