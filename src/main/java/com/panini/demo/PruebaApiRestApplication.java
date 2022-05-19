@@ -11,6 +11,7 @@ import com.panini.demo.model.Precio;
 import com.panini.demo.repository.AlbumRepository;
 import com.panini.demo.repository.LaminaRespository;
 import com.panini.demo.repository.PrecioRepository;
+import com.panini.demo.repository.UsersResporitory;
 
 @SpringBootApplication
 public class PruebaApiRestApplication {
@@ -21,9 +22,9 @@ public class PruebaApiRestApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner add(AlbumRepository albumRepository, LaminaRespository laminaRespository, PrecioRepository precioRepository) {
+	public CommandLineRunner add(UsersResporitory userRepository ,AlbumRepository albumRepository, LaminaRespository laminaRespository, PrecioRepository precioRepository) {
 		return (args) -> {
-			loadLaminas(laminaRespository, albumRepository);
+			//loadLaminas(laminaRespository, albumRepository);
 			loadPrecios1(precioRepository);
 			loadPrecios2(precioRepository);
 							
@@ -8479,6 +8480,8 @@ public class PruebaApiRestApplication {
 	}
 	
 	public void loadLaminas(LaminaRespository laminaRespository, AlbumRepository albumRepository) {
+		
+		
 		Album al = new Album();
 		al.setAlbumName("Mi primer Album");
 		albumRepository.save(al);
