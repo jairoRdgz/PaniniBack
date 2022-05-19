@@ -19,7 +19,7 @@ public class Album {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long albumid;
+	private long albumid;
 	
 	private String albumName;
 	private int laminasNumber;
@@ -44,16 +44,16 @@ public class Album {
 		
 	}
 	
-	public Album(Long id, String name) {
+	public Album(long id, String name) {
 		this.albumid = id;
 		this.albumName = name;
 	}
 
-	public Long getAlbumid() {
+	public long getAlbumid() {
 		return albumid;
 	}
 
-	public void setAlbumid(Long id) {
+	public void setAlbumid(long id) {
 		this.albumid = id;
 	}
 

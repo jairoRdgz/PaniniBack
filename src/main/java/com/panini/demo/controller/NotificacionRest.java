@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.panini.demo.model.Notificacion;
@@ -33,7 +32,7 @@ public class NotificacionRest {
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping
-	private ResponseEntity<Notificacion> guardar (@RequestBody Notificacion notificacion, @RequestParam String userid ){
+	private ResponseEntity<Notificacion> guardar (@RequestBody Notificacion notificacion, @PathVariable(value="userid") String userid ){
 		
 		Notificacion temporal = notificacionService.create(notificacion);
 		

@@ -24,6 +24,7 @@ public class AlbumService {
 	@Autowired
 	private LaminaRespository laminaRespository;
 	
+	
 	public Album create (Album album, String userid) {
 		album.setUser(usersResporitory.findById(userid).get());
 		usersResporitory.findById(userid).get().addAlbum(album);
@@ -41,7 +42,7 @@ public class AlbumService {
 		albumRepository.delete(album);
 	}
 	
-	public Optional<Album> findById (Long id) {
+	public Optional<Album> findById (long id) {
 		return albumRepository.findById(id);
 	}
 	
