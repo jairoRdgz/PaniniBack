@@ -42,7 +42,7 @@ public class AlbumREST {
 		Album temporal = albumService.create(album, userid);
 		
 		try {	
-			return ResponseEntity.created(new URI("/api/users/"+userid+"/albums"+temporal.getAlbumid())).body(temporal);
+			return ResponseEntity.created(new URI("/api/users/{"+userid+"}/albums"+temporal.getAlbumid())).body(temporal);
 			
 		}catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
