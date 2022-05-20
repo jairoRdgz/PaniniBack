@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -15,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table (name = "album")
+@Table (name = "albums")
 @JsonIgnoreProperties({"hibernateLazyInitializer","referenceList"})
 public class Album {
 
@@ -26,14 +27,14 @@ public class Album {
 	private String albumName;
 	private int laminasNumber;
 	
-	@JsonIgnore
 	@ManyToOne
+	@JoinColumn(name="userid")
+	@JsonIgnore
 	private User user;
 
 	
-	@OneToMany(mappedBy="album")
-	@JsonIgnoreProperties("album")
-	@JsonIgnore
+	@OneToMany
+	//@JsonIgnore
 	private List<Lamina> laminas;
 	
 	
@@ -44,7 +45,7 @@ public class Album {
 	public Album(long id, String name) {
 		this.albumid = id;
 		this.albumName = name;
-		this.laminas = new ArrayList<Lamina>();
+		
 	}
 
 	public long getAlbumid() {

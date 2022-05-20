@@ -26,11 +26,10 @@ public class User {
 	private String addressofliving;
 	private String addressofselling;
 	
-	@JsonIgnore
-	@OneToMany
+	
+	@OneToMany(mappedBy="user")
 	private List<Album> albums;
 	
-	@JsonIgnore
 	@OneToMany
 	private List<Notificacion> notificaciones;
 	

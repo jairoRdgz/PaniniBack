@@ -26,9 +26,7 @@ public class Lamina {
 	private int page;
 	
 	@ManyToOne
-	@JoinColumn(name = "albumid")
-	//@JsonIgnoreProperties("laminas")
-	//@JsonIgnore
+	@JsonIgnore
 	private Album album;
 	
 	public Lamina() {

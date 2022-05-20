@@ -28,8 +28,7 @@ public class AlbumService {
 	public Album create (Album album, String userid) {
 		album.setUser(usersResporitory.findById(userid).get());
 		usersResporitory.findById(userid).get().addAlbum(album);
-		albumRepository.save(album);
-		addAllLaminas(albumRepository.getById(album.getAlbumid()));
+		//addAllLaminas(albumRepository.findById(album.getAlbumid()).get());
 		albumRepository.save(album);
 		return album;
 	}
