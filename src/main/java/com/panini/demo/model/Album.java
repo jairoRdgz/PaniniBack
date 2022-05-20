@@ -1,5 +1,6 @@
 package com.panini.demo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class Album {
 
 	
 	@OneToMany(mappedBy="album")
-	//@JsonIgnoreProperties("album")
+	@JsonIgnoreProperties("album")
 	@JsonIgnore
 	private List<Lamina> laminas;
 	
@@ -43,6 +44,7 @@ public class Album {
 	public Album(long id, String name) {
 		this.albumid = id;
 		this.albumName = name;
+		this.laminas = new ArrayList<Lamina>();
 	}
 
 	public long getAlbumid() {
