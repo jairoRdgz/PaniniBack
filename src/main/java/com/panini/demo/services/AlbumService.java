@@ -30,7 +30,7 @@ public class AlbumService {
 		usersResporitory.findById(userid).get().addAlbum(album);
 		albumRepository.save(album);
 		addAllLaminas(albumRepository.getById(album.getAlbumid()));
-		
+		albumRepository.save(album);
 		return album;
 	}
 	

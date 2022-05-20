@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.panini.demo.model.Notificacion;
 import com.panini.demo.services.BasicInfo;
 import com.panini.demo.services.NotificacionService;
+import com.panini.demo.services.UsersService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -29,6 +30,9 @@ public class NotificacionRest {
 
 	@Autowired
 	private NotificacionService notificacionService;
+	
+	@Autowired
+	private UsersService usersService;
 	
 	@CrossOrigin(origins = "*")
 	@PostMapping
@@ -46,8 +50,8 @@ public class NotificacionRest {
 	
 	@CrossOrigin(origins = "*")
 	@GetMapping
-	private ResponseEntity<List<Notificacion>> listarTodosLosAlbumes (){
-		return ResponseEntity.ok(notificacionService.getAllNotificaciones());
+	private ResponseEntity<List<Notificacion>> listarTodosLosAlbumes (@PathVariable(value="userid") String userid ){
+		return ResponseEntity.ok(usersService.findById(userid).get().getNotificaciones());
 	}
 	
 	@CrossOrigin(origins = "*")
