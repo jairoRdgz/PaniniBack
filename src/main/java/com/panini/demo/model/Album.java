@@ -25,6 +25,7 @@ public class Album {
 	
 	private String albumName;
 	private int laminasNumber;
+	private String userref;
 	
 	@ManyToOne
 	@JoinColumn(name="userid")
@@ -91,6 +92,22 @@ public class Album {
 
 	public void setLaminasnumber(int laminasnumber) {
 		this.laminasNumber = laminasnumber;
+	}
+
+	public int getLaminasNumber() {
+		return laminasNumber;
+	}
+
+	public void setLaminasNumber(int laminasNumber) {
+		this.laminasNumber = laminasNumber;
+	}
+
+	public String getUserref() {
+		return userref;
+	}
+
+	public void setUserref(String userref) {
+		this.userref = userref;
 	}
 
 }
