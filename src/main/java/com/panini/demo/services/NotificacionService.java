@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.panini.demo.model.Notificacion;
 import com.panini.demo.repository.NotificacionRepository;
+import com.panini.demo.repository.UsersResporitory;
 
 @Service
 public class NotificacionService {
@@ -15,8 +16,14 @@ public class NotificacionService {
 	@Autowired
 	private NotificacionRepository notificacionRepository;
 	
-	public Notificacion create (Notificacion noti) {
-		return notificacionRepository.save(noti);
+	@Autowired
+	private UsersResporitory usersResporitory; 
+	
+	public Notificacion create (Notificacion noti, String userid) {
+		noti.setUser(usersResporitory.findById(userid).get());
+		usersResporitory.findById(userid).get().addNotificacion(noti);
+		notificacionRepository.save(noti);
+		return noti;
 	}
 	
 	public List<Notificacion> getAllNotificaciones(){

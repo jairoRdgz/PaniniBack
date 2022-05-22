@@ -30,7 +30,7 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Album> albums;
 	
-	@OneToMany
+	@OneToMany(mappedBy="user")
 	private List<Notificacion> notificaciones;
 	
 	
@@ -123,6 +123,12 @@ public class User {
 		return newalbum;
 	}
 
+	public Notificacion addNotificacion(Notificacion newnoti) {
+		getNotificaciones().add(newnoti);
+		newnoti.setUser(this);
+		
+		return newnoti;
+	}
 
 
 	public String getUserid() {

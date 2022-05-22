@@ -38,7 +38,7 @@ public class NotificacionRest {
 	@PostMapping
 	private ResponseEntity<Notificacion> guardar (@RequestBody Notificacion notificacion, @PathVariable(value="userid") String userid ){
 		
-		Notificacion temporal = notificacionService.create(notificacion);
+		Notificacion temporal = notificacionService.create(notificacion, userid);
 		
 		try {	
 			return ResponseEntity.created(new URI("/api/users/"+userid+"/notifys"+temporal.getNotifyid())).body(temporal);
