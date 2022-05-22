@@ -34,6 +34,12 @@ public class AlbumService {
 		return album;
 	}
 	
+	public Album create2 (Album album) {
+		
+		
+		return albumRepository.save(album);
+	}
+	
 	public List<Album> getAllAlbums (){
 		return albumRepository.findAll();
 	}

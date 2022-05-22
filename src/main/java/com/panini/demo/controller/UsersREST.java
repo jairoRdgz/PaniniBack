@@ -85,9 +85,10 @@ public class UsersREST {
 		}
 		
 		Album temporal = albumService.create(album, userid);
-		
+		Album temporal2 = albumService.create2(album);
 		
 		try {	
+			ResponseEntity.created(new URI("/api/users/albums"+temporal2.getAlbumid())).body(temporal2);
 			return ResponseEntity.created(new URI("/api/users/"+userid+"/albums"+temporal.getAlbumid())).body(temporal);
 			
 		}catch (Exception e) {
@@ -96,10 +97,35 @@ public class UsersREST {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
+	
+	@PostMapping("/albums/")
+	private ResponseEntity<Album> guardarAlbum2 (@RequestBody Album album){
+		
 
+		for(int i = 0; i< album.getLaminas().size(); i++) {
+			laminaService.create(album.getLaminas().get(i));
+		}
+		
+		Album temporal2 = albumService.create2(album);
+		
+		try {	
+			return ResponseEntity.created(new URI("/api/users/albums"+temporal2.getAlbumid())).body(temporal2);
+			
+		}catch (Exception e) {
+			
+			System.out.println(e);
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+		}
+	}
+	
+	@GetMapping("/albums/")
+	private ResponseEntity<List<Album>> listarTodosLosAlbumes (){
+		System.out.println("entre");
+		return ResponseEntity.ok(albumService.getAllAlbums());
+	}
 	
 	@GetMapping("{userid}/albums")
-	private ResponseEntity<List<Album>> listarTodosLosAlbumes (@PathVariable(value="userid") String userid){
+	private ResponseEntity<List<Album>> listarTodosLosAlbumesdeUnusuario (@PathVariable(value="userid") String userid){
 		System.out.println("entre");
 		return ResponseEntity.ok(userService.findById(userid).get().getAlbums());
 	}
