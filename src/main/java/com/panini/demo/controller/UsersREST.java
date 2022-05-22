@@ -22,6 +22,7 @@ import com.panini.demo.model.Album;
 import com.panini.demo.model.User;
 import com.panini.demo.services.AlbumService;
 import com.panini.demo.services.BasicInfo;
+import com.panini.demo.services.LaminaService;
 import com.panini.demo.services.UsersService;
 
 @RestController
@@ -34,6 +35,9 @@ public class UsersREST {
 	
 	@Autowired
 	private AlbumService albumService;
+	
+	@Autowired 
+	private LaminaService laminaService;
 	
 	//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	//Users
@@ -75,7 +79,13 @@ public class UsersREST {
 	@PostMapping("{userid}/albums")
 	private ResponseEntity<Album> guardarAlbum (@RequestBody Album album, @PathVariable(value="userid") String userid){
 		
+
+		for(int i = 0; i< album.getLaminas().size(); i++) {
+			laminaService.create(album.getLaminas().get(i));
+		}
+		
 		Album temporal = albumService.create(album, userid);
+		
 		
 		try {	
 			return ResponseEntity.created(new URI("/api/users/"+userid+"/albums"+temporal.getAlbumid())).body(temporal);

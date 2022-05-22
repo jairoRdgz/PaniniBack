@@ -81,7 +81,7 @@ public class Album {
 	
 	public Lamina addLamina(Lamina lamina) {
 		getLaminas().add(lamina);
-		lamina.setAlbum(this);
+		//lamina.setAlbum(this);
 		return lamina;
 	}
 	

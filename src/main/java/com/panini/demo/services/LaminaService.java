@@ -25,7 +25,7 @@ public class LaminaService {
 
 	public Lamina create(Lamina lamina) {
 		
-		lamina.setAlbum(albumRepository.getById(lamina.getAlbum().getAlbumid()));
+		//lamina.setAlbum(albumRepository.getById(lamina.getAlbum().getAlbumid()));
 		return laminaRespository.save(lamina);
 		
 	}

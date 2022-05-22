@@ -23,9 +23,9 @@ public class Lamina {
 	private String title;
 	private int page;
 	
-	@ManyToOne
-	@JsonIgnore
-	private Album album;
+	//@ManyToOne
+	//@JsonIgnore
+	//private Album album;
 	
 	public Lamina() {
 		
@@ -71,13 +71,13 @@ public class Lamina {
 		this.filter = filter;
 	}
 
-	public Album getAlbum() {
-		return album;
-	}
+	//public Album getAlbum() {
+	//	return album;
+	//}
 
-	public void setAlbum(Album album) {
-		this.album = album;
-	}
+	//public void setAlbum(Album album) {
+	//	this.album = album;
+	//}
 
 	public String getTitle() {
 		return title;
