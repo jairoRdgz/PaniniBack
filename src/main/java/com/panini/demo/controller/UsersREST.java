@@ -131,14 +131,15 @@ public class UsersREST {
 	}
 	
 	@DeleteMapping("{userid}/albums/")
-	private ResponseEntity<Void> eliminarAlbum (@RequestBody Album album){
+	private ResponseEntity<Void> eliminarAlbum (@RequestBody Album album, @PathVariable(value="userid") String userid){
+		album = userService.findById(userid).get().getAlbums().get(0);
 		albumService.delete(album);
 		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping(value = "{userid}/albums/{id}")
-	private ResponseEntity<Album> actualizarAlbum(@PathVariable(value="id") long id, @Validated(BasicInfo.class) @RequestBody Album album){
-		
+	private ResponseEntity<Album> actualizarAlbum(@PathVariable(value="id") long id, @Validated(BasicInfo.class) @RequestBody Album album, @PathVariable(value="userid") String userid){
+		album = userService.findById(userid).get().getAlbums().get(0);
 		albumService.update(album);
 		return ResponseEntity.ok(album);
 	}
