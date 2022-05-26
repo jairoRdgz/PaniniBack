@@ -130,7 +130,7 @@ public class UsersREST {
 		return ResponseEntity.ok(userService.findById(userid).get().getAlbums());
 	}
 	
-	@DeleteMapping("{userid}/albums/")
+	@DeleteMapping("{userid}/albums/{id}")
 	private ResponseEntity<Void> eliminarAlbum (@RequestBody Album album, @PathVariable(value="userid") String userid){
 		album = userService.findById(userid).get().getAlbums().get(0);
 		albumService.delete(album);
