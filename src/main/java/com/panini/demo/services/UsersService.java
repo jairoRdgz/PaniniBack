@@ -30,4 +30,9 @@ public class UsersService {
 	public Optional<User> findById (String id) {
 		return personaResporitory.findById(id);
 	}
+	
+	public void update (User user) {
+		User newUser = personaResporitory.getById(user.getUserid());
+		newUser.setAlbums(user.getAlbums());
+	}
 }

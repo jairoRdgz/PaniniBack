@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -153,4 +152,16 @@ public class User {
 		this.notificaciones = notificaciones;
 	}
 	
+	
+	
+	public int findAlbumByid(long id) {
+		
+		
+		for (int i=0; i< getAlbums().size(); i++) {
+			if(getAlbums().get(i).getAlbumid()==id) {
+				return i;
+			}
+		}
+		return -1;
+	}
 }
