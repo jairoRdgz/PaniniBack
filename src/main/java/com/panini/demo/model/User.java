@@ -162,6 +162,6 @@ public class User {
 				return i;
 			}
 		}
-		return -1;
+		return 0;
 	}
 }

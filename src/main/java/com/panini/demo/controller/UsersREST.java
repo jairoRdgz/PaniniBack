@@ -138,12 +138,10 @@ public class UsersREST {
 	}
 	
 	@PutMapping(value = "{userid}/albums/{id}")
-	private ResponseEntity<Album> actualizarAlbum(@Validated(BasicInfo.class) @RequestBody Album album, @PathVariable(value="userid") String userid){
+	private ResponseEntity<Album> actualizarAlbum(@Validated(BasicInfo.class) @RequestBody Album album, @RequestBody User user, @PathVariable(value="userid") String userid, @PathVariable(value="id") long id){
 		
-		album = userService.findById(userid).get().getAlbums().get(0);
+		album = userService.findById(userid).get().getAlbums().get(userService.findById(userid).get().findAlbumByid(id));
 		albumService.update(album);
-		//User user = userService.findById(userid).get();
-		//user.setAlbums(albumService.getAllAlbums());
 		//userService.update(user);
 		return ResponseEntity.ok(album);
 	}

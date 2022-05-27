@@ -53,7 +53,7 @@ public class AlbumService {
 	public void update (Album album) {
 		Album newAlbum = albumRepository.getById(album.getAlbumid());
 		newAlbum.setAlbumName(album.getAlbumName());
-		
+		newAlbum.setLaminasnumber(album.getLaminasnumber());
 		albumRepository.save(newAlbum);
 		
 	}
