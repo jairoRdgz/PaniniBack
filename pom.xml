@@ -55,6 +55,12 @@
              <scope>runtime</scope> 
         </dependency>
         
+        <dependency>
+             <groupId>org.everit.json</groupId>     
+             <artifactId>org.everit.json.schema</artifactId>     
+             <version>1.5.1</version> 
+        </dependency>
+        
 	</dependencies>
 
 	<build>
