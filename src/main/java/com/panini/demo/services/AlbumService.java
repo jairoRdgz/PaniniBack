@@ -50,8 +50,8 @@ public class AlbumService {
 		return albumRepository.findById(id);
 	}
 	
-	public void update (Album album) {
-		Album newAlbum = albumRepository.getById(album.getAlbumid());
+	public void update (Album album, Long idalbum) {
+		Album newAlbum = albumRepository.getById(idalbum);
 		newAlbum.setAlbumName(album.getAlbumName());
 		newAlbum.setLaminasnumber(album.getLaminasnumber());
 		albumRepository.save(newAlbum);
