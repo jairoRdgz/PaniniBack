@@ -5,18 +5,26 @@ import com.panini.demo.model.User;
 import com.panini.demo.repository.AlbumRepository;
 import com.panini.demo.repository.UsersResporitory;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import lombok.SneakyThrows;
 import lombok.var;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
@@ -53,10 +61,10 @@ public class GetAlbumTest {
 
     @Test
     @SneakyThrows
-    public void animaDetailWithSuccessStatusCodeAndContentType() {
-        var response = mockMvc.perform(get("/animals/Thor")).andReturn().getResponse();
+    public void animaDetailWithSuccessStatusCodeAndContentType() throws Exception {
+        var response = (var) mockMvc.perform(get("/api/users/")).andReturn().getResponse();
 
-        assertThat(response.getStatus(), equalTo(HttpStatus.OK.value()));
-        assertThat(response.getContentType(), equalTo(MediaType.APPLICATION_JSON.toString()));
+        assertThat(((MockHttpServletResponse) response).getStatus(), equalTo(HttpStatus.OK.value()));
+        assertThat(((MockHttpServletResponse) response).getContentType(), equalTo(MediaType.APPLICATION_JSON.toString()));
     }
 }

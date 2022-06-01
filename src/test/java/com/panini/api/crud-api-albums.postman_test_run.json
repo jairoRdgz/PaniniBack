@@ -1,0 +1,500 @@
+{
+	"id": "2c39e3b5-fe5e-402e-a7aa-ef4a7fd9a6cd",
+	"name": "crud-api-albums",
+	"timestamp": "2022-05-30T21:51:06.000Z",
+	"collection_id": "18527799-26fdf3a7-5f7a-48e6-bcf8-1b471c4d33c1",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 50,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "3e0d7779-e12b-4769-a529-f49571c7dac9",
+			"name": "Create User",
+			"url": "http://localhost:8080/api/users/",
+			"time": 11,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"The User is created": true,
+				"the username of the user is usuario1": true,
+				"the userid of the user is usuario1": true,
+				"the password of the user is 1234": true,
+				"the tokens of the user are 0": true,
+				"the username of the user is not empty": true,
+				"the password of the user is not empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The User is created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the username of the user is usuario1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the userid of the user is usuario1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the password of the user is 1234": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the tokens of the user are 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the username of the user is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the password of the user is not empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"The User is created": true,
+					"the username of the user is usuario1": true,
+					"the userid of the user is usuario1": true,
+					"the password of the user is 1234": true,
+					"the tokens of the user are 0": true,
+					"the username of the user is not empty": true,
+					"the password of the user is not empty": true
+				}
+			]
+		},
+		{
+			"id": "a7237e31-3c82-458a-8e5a-b1c332ba6d4d",
+			"name": "Create User (missing properties)",
+			"url": "http://localhost:8080/api/users/",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"The user couldnt be created": true,
+				"the path of the error exist": true,
+				"the path of the error is /api/users/": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The user couldnt be created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the path of the error exist": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the path of the error is /api/users/": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"The user couldnt be created": true,
+					"the path of the error exist": true,
+					"the path of the error is /api/users/": true
+				}
+			]
+		},
+		{
+			"id": "427e5c46-1740-4a6d-b98e-9c465d85bbd9",
+			"name": "Create Album to usuario1",
+			"url": "http://localhost:8080/api/users/usuario1/albums/",
+			"time": 1651,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"The album is created": true,
+				"the albumName of the album is 'ALbum de prueba 1'": true,
+				"the laminasNumber of the album are 0": true,
+				"the userref of the album is usuario1": true,
+				"the laminas of the album are an array": true,
+				"the album has 0 laminas": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The album is created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the albumName of the album is 'ALbum de prueba 1'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the laminasNumber of the album are 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the userref of the album is usuario1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the laminas of the album are an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the album has 0 laminas": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1651
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"The album is created": true,
+					"the albumName of the album is 'ALbum de prueba 1'": true,
+					"the laminasNumber of the album are 0": true,
+					"the userref of the album is usuario1": true,
+					"the laminas of the album are an array": true,
+					"the album has 0 laminas": true
+				}
+			]
+		},
+		{
+			"id": "10edd439-be9d-4b59-a733-0a4e7b7cb670",
+			"name": "Create Album to usuario (missing properties)",
+			"url": "http://localhost:8080/api/users/usuario1/albums/",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"The Album couldnt be created": true,
+				"the path of the error exist": true,
+				"the path of the error is /api/users/usuario1/albums/": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The Album couldnt be created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the path of the error exist": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the path of the error is /api/users/usuario1/albums/": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"The Album couldnt be created": true,
+					"the path of the error exist": true,
+					"the path of the error is /api/users/usuario1/albums/": true
+				}
+			]
+		},
+		{
+			"id": "46f28385-059f-4726-981e-9ab2bad031c8",
+			"name": "Get All Albums from user",
+			"url": "http://localhost:8080/api/users/usuario1/albums/",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"the response is an array of albums": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the response is an array of albums": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"the response is an array of albums": true
+				}
+			]
+		},
+		{
+			"id": "2cead99b-a9f8-4bf3-b98d-dac9b0debee1",
+			"name": "Get Album from user",
+			"url": "http://localhost:8080/api/users/usuario1/albums/11824",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The album exists": true,
+				"the AlbumName of the album is ALbum de prueba 1": true,
+				"the laminasNumber of the album is 0": true,
+				"the userref of the album is usuario1": true,
+				"the laminas of the user are in a array": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The album exists": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the AlbumName of the album is ALbum de prueba 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the laminasNumber of the album is 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the userref of the album is usuario1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the laminas of the user are in a array": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The album exists": true,
+					"the AlbumName of the album is ALbum de prueba 1": true,
+					"the laminasNumber of the album is 0": true,
+					"the userref of the album is usuario1": true,
+					"the laminas of the user are in a array": true
+				}
+			]
+		},
+		{
+			"id": "f6fca315-e318-4c40-b861-65b541786230",
+			"name": "Delete album from user",
+			"url": "http://localhost:8080/api/users/usuario1/albums/10979",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "88a13f6d-e02d-43a9-af94-7e2f60124e6f",
+			"name": "Edit Album from user",
+			"url": "http://localhost:8080/api/users/usuario1/albums/2534",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"The album exists": true,
+				"the albumid of the album is 0": true,
+				"the albumName of the album is Juanito": true,
+				"the laminasNumber of the album is 0": true,
+				"the userref of the album is usuario1": true,
+				"the laminas of the album are in a array": true,
+				"the laminas of the album are in a not empty array": true,
+				"the the first lamina of the album is 'https://www.laststicker.com/i/cards/3852/00.jpg'": true,
+				"the title of the first lamina of the album is Panini": true,
+				"the first lamina of the album is in page 1": true,
+				"the id of the first lamina of the album id 98765": true,
+				"the id of a lamina in the album can be null": true,
+				"the the second lamina of the album is 'https://www.laststicker.com/i/cards/3852/1.jpg'": true,
+				"the title of the second lamina of the album is FIFA Fair Play": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"The album exists": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the albumid of the album is 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the albumName of the album is Juanito": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the laminasNumber of the album is 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the userref of the album is usuario1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the laminas of the album are in a array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the laminas of the album are in a not empty array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the the first lamina of the album is 'https://www.laststicker.com/i/cards/3852/00.jpg'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the title of the first lamina of the album is Panini": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the first lamina of the album is in page 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the id of the first lamina of the album id 98765": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the id of a lamina in the album can be null": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the the second lamina of the album is 'https://www.laststicker.com/i/cards/3852/1.jpg'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"the title of the second lamina of the album is FIFA Fair Play": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"The album exists": true,
+					"the albumid of the album is 0": true,
+					"the albumName of the album is Juanito": true,
+					"the laminasNumber of the album is 0": true,
+					"the userref of the album is usuario1": true,
+					"the laminas of the album are in a array": true,
+					"the laminas of the album are in a not empty array": true,
+					"the the first lamina of the album is 'https://www.laststicker.com/i/cards/3852/00.jpg'": true,
+					"the title of the first lamina of the album is Panini": true,
+					"the first lamina of the album is in page 1": true,
+					"the id of the first lamina of the album id 98765": true,
+					"the id of a lamina in the album can be null": true,
+					"the the second lamina of the album is 'https://www.laststicker.com/i/cards/3852/1.jpg'": true,
+					"the title of the second lamina of the album is FIFA Fair Play": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1752,
+	"collection": {
+		"requests": [
+			{
+				"id": "3e0d7779-e12b-4769-a529-f49571c7dac9",
+				"method": "POST"
+			},
+			{
+				"id": "a7237e31-3c82-458a-8e5a-b1c332ba6d4d",
+				"method": "POST"
+			},
+			{
+				"id": "427e5c46-1740-4a6d-b98e-9c465d85bbd9",
+				"method": "POST"
+			},
+			{
+				"id": "10edd439-be9d-4b59-a733-0a4e7b7cb670",
+				"method": "POST"
+			},
+			{
+				"id": "46f28385-059f-4726-981e-9ab2bad031c8",
+				"method": "GET"
+			},
+			{
+				"id": "2cead99b-a9f8-4bf3-b98d-dac9b0debee1",
+				"method": "GET"
+			},
+			{
+				"id": "f6fca315-e318-4c40-b861-65b541786230",
+				"method": "DELETE"
+			},
+			{
+				"id": "88a13f6d-e02d-43a9-af94-7e2f60124e6f",
+				"method": "PUT"
+			}
+		]
+	}
+}
